@@ -67,9 +67,9 @@ class LivenessDetectionViewController: UIViewController {
             
         } success: { (model) in
             
-            print("Active Passive Liveness Detection Success: isAlive: \(model.isAlive), liveness confidence: \(model.confidence)")
+            print("Active Passive Liveness Detection Success: isAlive: \(model.isAlive), liveness confidence: \(model.livenessConfidence)")
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
-                HelperFunctions.showToast(controller: self, message: "You are \(model.isAlive ? "\(model.confidence * 100)% alive" : "\((1 - model.confidence) * 100)% not alive")")
+                HelperFunctions.showToast(controller: self, message: "You are \(model.isAlive ? "\(model.livenessConfidence * 100)% alive" : "\((1 - model.livenessConfidence) * 100)% not alive")")
             }
             
         } failure: { (message) in
@@ -96,9 +96,9 @@ class LivenessDetectionViewController: UIViewController {
             
         } success: { (model) in
             
-            print("Passive Liveness Detection Success: isAlive: \(model.isAlive), liveness confidence: \(model.confidence)")
+            print("Passive Liveness Detection Success: isAlive: \(model.isAlive), liveness confidence: \(model.livenessConfidence)")
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
-                HelperFunctions.showToast(controller: self, message: "You are \(model.isAlive ? "\(model.confidence * 100)% alive" : "\((1 - model.confidence) * 100)% not alive")")
+                HelperFunctions.showToast(controller: self, message: "You are \(model.isAlive ? "\(model.livenessConfidence * 100)% alive" : "\((1 - model.livenessConfidence) * 100)% not alive")")
             }
             
         } failure: { (message) in
@@ -128,10 +128,10 @@ class LivenessDetectionViewController: UIViewController {
             SybrinBiometrics.shared.passiveLivenessDetectionFromImage(image: image) { [weak self] (model) in
                 guard let self = self else { return }
                 
-                print("Passive Liveness Detection Success: isAlive: \(model.isAlive), liveness confidence: \(model.confidence)")
+                print("Passive Liveness Detection Success: isAlive: \(model.isAlive), liveness confidence: \(model.livenessConfidence)")
                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
                     self.enableButtons()
-                    HelperFunctions.showToast(controller: self, message: "You are \(model.isAlive ? "\(model.confidence * 100)% alive" : "\((1 - model.confidence) * 100)% not alive")")
+                    HelperFunctions.showToast(controller: self, message: "You are \(model.isAlive ? "\(model.livenessConfidence * 100)% alive" : "\((1 - model.livenessConfidence) * 100)% not alive")")
                 }
             
             } failure: { [weak self] (message) in

@@ -52,11 +52,11 @@ class FacialRecognitionViewController: UIViewController {
     @IBAction func loadModelTapped(_ sender: Any) {
         guard let identifier = identifier.text, identifier.count > 0 else { return HelperFunctions.showToast(controller: self, message: "Identifier is empty") }
         
-        SybrinBiometrics.shared.loadModel(for: identifier) {
+        SybrinBiometrics.shared.loadModel(for: identifier) { (model) in
             
-            print("Load Model Success: \(identifier)")
+            print("Load Model Success: \(model.identifier)")
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
-                HelperFunctions.showToast(controller: self, message: "Loading model for \(identifier) was successful")
+                HelperFunctions.showToast(controller: self, message: "Loading model for \(model.identifier) was successful and took \(model.timeTakenMilliseconds) milliseconds\(model.modelDownloaded ? " to download" : "")")
             }
             
         } failure: { (message) in
