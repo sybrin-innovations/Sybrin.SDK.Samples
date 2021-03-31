@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IdentityExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RA7-SO-fFm">
+                                <rect key="frame" x="0.0" y="533" width="414" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jgQ-Go-kL9"/>
+                                </constraints>
+                                <state key="normal" title="Scan Green Book"/>
+                                <connections>
+                                    <action selector="scanGreenBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5jp-8C-5FS"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xgh-8A-a26">
+                                <rect key="frame" x="0.0" y="373" width="414" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="hjG-QW-Jtx"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Uz-cd-omY">
+                                <rect key="frame" x="0.0" y="347" width="414" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Lcc-fp-qYI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN0-Cz-f30">
+                                <rect key="frame" x="0.0" y="613" width="414" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="pO0-sp-IoO"/>
+                                </constraints>
+                                <state key="normal" title="Scan Passport"/>
+                                <connections>
+                                    <action selector="scanPassport:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uol-dG-34n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkZ-R6-aRM">
+                                <rect key="frame" x="0.0" y="573" width="414" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Vhd-fw-fJ4"/>
+                                </constraints>
+                                <state key="normal" title="Scan ID Card"/>
+                                <connections>
+                                    <action selector="scanIDCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BNH-mZ-vs9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RA7-SO-fFm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6FE-xC-hmv"/>
+                            <constraint firstItem="PkZ-R6-aRM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="D2g-ql-TNc"/>
+                            <constraint firstItem="RA7-SO-fFm" firstAttribute="top" secondItem="Xgh-8A-a26" secondAttribute="bottom" constant="10" id="GNv-Ct-ulG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RA7-SO-fFm" secondAttribute="trailing" id="IE8-O9-9Ye"/>
+                            <constraint firstItem="VN0-Cz-f30" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YQE-EZ-cB2"/>
+                            <constraint firstItem="PkZ-R6-aRM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dCz-Xq-3En"/>
+                            <constraint firstItem="Xgh-8A-a26" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dRb-bw-ry4"/>
+                            <constraint firstItem="VN0-Cz-f30" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="g1j-90-cu5"/>
+                            <constraint firstItem="PkZ-R6-aRM" firstAttribute="top" secondItem="RA7-SO-fFm" secondAttribute="bottom" constant="10" id="gbH-Ne-Ajv"/>
+                            <constraint firstItem="Xgh-8A-a26" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gvw-pk-asB"/>
+                            <constraint firstItem="Xgh-8A-a26" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ipE-GF-Irh"/>
+                            <constraint firstItem="0Uz-cd-omY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="itZ-2X-sxv"/>
+                            <constraint firstItem="VN0-Cz-f30" firstAttribute="top" secondItem="PkZ-R6-aRM" secondAttribute="bottom" constant="10" id="z0C-n8-K96"/>
+                            <constraint firstItem="Xgh-8A-a26" firstAttribute="top" secondItem="0Uz-cd-omY" secondAttribute="bottom" constant="5" id="z3C-W0-69m"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Uz-cd-omY" secondAttribute="trailing" id="zGi-6F-GGO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countryPicker" destination="Xgh-8A-a26" id="4Bj-h3-0It"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="103.79464285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
