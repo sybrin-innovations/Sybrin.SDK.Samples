@@ -54,7 +54,7 @@ PODS:
   - nanopb/encode (2.30907.0)
   - PromisesObjC (1.2.12)
   - Protobuf (3.14.0)
-  - Sybrin.iOS.Biometrics (1.10.0):
+  - Sybrin.iOS.Biometrics (1.10.1):
     - GoogleMLKit/FaceDetection (~> 2.1.0)
     - Sybrin.iOS.Common (~> 1.9.0)
   - Sybrin.iOS.Common (1.9.0)
@@ -93,7 +93,7 @@ SPEC CHECKSUMS:
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: 0cde852566359049847168e51bd1c690e0f70056
-  Sybrin.iOS.Biometrics: c281d93b54372972d67ac5b4cc81e896b93086c9
+  Sybrin.iOS.Biometrics: 72e41b2f6d3d29b66b78c63078503623c62bf462
   Sybrin.iOS.Common: 05aef2f768fa1648bbfdbe774a366c790a97540b
 
 PODFILE CHECKSUM: 7f12fd330f911fea00fa956638560e917af7b6b6

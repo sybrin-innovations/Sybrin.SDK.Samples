@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044225DC2616AC77001C0ED2 /* LivenessDetectionActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044225DB2616AC77001C0ED2 /* LivenessDetectionActionTableViewCell.swift */; };
 		046B55D3260D634B0079380E /* FacialComparisonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B55D2260D634B0079380E /* FacialComparisonTableViewCell.swift */; };
 		047A092A25EFB65A00233BBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A092925EFB65A00233BBC /* AppDelegate.swift */; };
 		047A092C25EFB65A00233BBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A092B25EFB65A00233BBC /* SceneDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		044225DB2616AC77001C0ED2 /* LivenessDetectionActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessDetectionActionTableViewCell.swift; sourceTree = "<group>"; };
 		046B55D2260D634B0079380E /* FacialComparisonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacialComparisonTableViewCell.swift; sourceTree = "<group>"; };
 		047A092625EFB65A00233BBC /* BiometricsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiometricsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047A092925EFB65A00233BBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				04906870260A38C200476C97 /* LivenessDetectionViewController.swift */,
 				0490687C260A3E5100476C97 /* HelperFunctions.swift */,
 				04906890260A4A9000476C97 /* ImagePicker.swift */,
+				044225DB2616AC77001C0ED2 /* LivenessDetectionActionTableViewCell.swift */,
 				046B55D2260D634B0079380E /* FacialComparisonTableViewCell.swift */,
 				047A092F25EFB65A00233BBC /* Main.storyboard */,
 				047A093225EFB65B00233BBC /* Assets.xcassets */,
@@ -243,6 +246,7 @@
 			files = (
 				046B55D3260D634B0079380E /* FacialComparisonTableViewCell.swift in Sources */,
 				0490687D260A3E5100476C97 /* HelperFunctions.swift in Sources */,
+				044225DC2616AC77001C0ED2 /* LivenessDetectionActionTableViewCell.swift in Sources */,
 				047A092E25EFB65A00233BBC /* ViewController.swift in Sources */,
 				047A092A25EFB65A00233BBC /* AppDelegate.swift in Sources */,
 				047A092C25EFB65A00233BBC /* SceneDelegate.swift in Sources */,

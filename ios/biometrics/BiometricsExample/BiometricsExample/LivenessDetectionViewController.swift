@@ -14,11 +14,30 @@ class LivenessDetectionViewController: UIViewController {
     @IBOutlet weak var activePassiveLivenessDetectionButton: UIButton!
     @IBOutlet weak var passiveLivenessDetectionButton: UIButton!
     @IBOutlet weak var passiveLivenessDetectionFromImageButton: UIButton!
+    @IBOutlet weak var actionsTableView: UITableView!
+    var actions: [String] = [
+        "Blink",
+        "Look down",
+        "Look up",
+        "Smile",
+        "Tilt head left",
+        "Tilt head right",
+        "Turn head left",
+        "Turn head right"
+    ]
     var livenessDetectionQuestions: [LivenessDetectionQuestion] {
-        return [
-            SmileLivenessDetectionQuestion(),
-            BlinkLivenessDetectionQuestion()
-        ]
+        var list: [LivenessDetectionQuestion] = []
+        
+        if actions.contains("Blink") { list.append(BlinkLivenessDetectionQuestion()) }
+        if actions.contains("Look down") { list.append(LookDownLivenessDetectionQuestion()) }
+        if actions.contains("Look up") { list.append(LookUpLivenessDetectionQuestion()) }
+        if actions.contains("Smile") { list.append(SmileLivenessDetectionQuestion()) }
+        if actions.contains("Tilt head left") { list.append(TiltHeadLeftLivenessDetectionQuestion()) }
+        if actions.contains("Tilt head right") { list.append(TiltHeadRightLivenessDetectionQuestion()) }
+        if actions.contains("Turn head left") { list.append(TurnHeadLeftLivenessDetectionQuestion()) }
+        if actions.contains("Turn head right") { list.append(TurnHeadRightLivenessDetectionQuestion()) }
+        
+        return list
     }
     var imagePicker: ImagePicker { return ImagePicker() }
 
@@ -27,6 +46,29 @@ class LivenessDetectionViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         title = "Liveness Detection"
+        actionsTableView.delegate = self
+        actionsTableView.dataSource = self
+    }
+    
+    @IBAction func resetTapped(_ sender: Any) {
+        
+        for action in [
+            "Blink",
+            "Look down",
+            "Look up",
+            "Smile",
+            "Tilt head left",
+            "Tilt head right",
+            "Turn head left",
+            "Turn head right"
+        ] {
+            if !actions.contains(action) {
+                let indexPath = IndexPath(row: self.actions.count, section: 0)
+                self.actions.append(action)
+                self.actionsTableView.insertRows(at: [indexPath], with: .fade)
+            }
+        }
+        
     }
 
     @IBAction func activeLivenessDetectionTapped(_ sender: Any) {
@@ -161,6 +203,40 @@ class LivenessDetectionViewController: UIViewController {
         activePassiveLivenessDetectionButton.isEnabled = true
         passiveLivenessDetectionButton.isEnabled = true
         passiveLivenessDetectionFromImageButton.isEnabled = true
+    }
+    
+}
+
+extension LivenessDetectionViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, result) in
+            guard let self = self else { return }
+            
+            self.actions.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+}
+
+extension LivenessDetectionViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return actions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LivenessActionCell", for: indexPath) as! LivenessDetectionActionTableViewCell
+        cell.actionTitle.text = actions[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 35
     }
     
 }
