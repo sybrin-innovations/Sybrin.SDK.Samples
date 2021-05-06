@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sybrinConfig = SybrinBiometricsConfiguration(license: licenseKey)
         
         SybrinBiometrics.shared.configuration = sybrinConfig
+        SybrinBiometrics.shared.changeLogLevel(to: .Information)
         
         return true
     }

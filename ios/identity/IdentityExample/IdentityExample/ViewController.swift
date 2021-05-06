@@ -21,6 +21,35 @@ class ViewController: UIViewController {
         countryPicker.selectRow(Country.allCases.firstIndex(of: selectedCountry) ?? 0, inComponent: 0, animated: false)
     }
     
+    @IBAction func scanDriversLicense(_ sender: Any) {
+        
+        SybrinIdentity.shared.scanDriversLicense(on: self, for: selectedCountry) { (result, message) in
+            
+            print("Done Launching: \(result) \(!result ? " with message: \(message ?? "")" : "")")
+            if let message = message { self.showToast(controller: self, message: message) }
+            
+        } success: { (model) in
+            
+            print("Scan Drivers License Success: \(model.licenseNumber ?? "")")
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                if let licenseNumber = model.licenseNumber { self.showToast(controller: self, message: "Scanned Drivers License for \(licenseNumber)") }
+            }
+            
+        } failure: { (message) in
+            
+            print("Scan Drivers License Failed: \(message)")
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                self.showToast(controller: self, message: message)
+            }
+            
+        } cancel: {
+            
+            print("Scan Drivers License Canceled")
+            
+        }
+
+    }
+    
     @IBAction func scanGreenBook(_ sender: Any) {
         
         SybrinIdentity.shared.scanGreenBook(on: self) { (result, message) in
@@ -125,7 +154,7 @@ extension ViewController: UIPickerViewDataSource {
 extension ViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Country.allCases[row].fullName()
+        return Country.allCases[row].fullName
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

@@ -162,7 +162,7 @@ class LivenessDetectionViewController: UIViewController {
         
         imagePicker.pickImage(self) { [weak self] (image) in
             guard let self = self else { return }
-            let image = image.fixOrientation(with: image.imageOrientation).rotateImagePortrait()
+            let image = image.fixOrientation(to: image.imageOrientation).rotateImagePortrait()
             
             HelperFunctions.showToast(controller: self, message: "Please wait")
             self.disableButtons()

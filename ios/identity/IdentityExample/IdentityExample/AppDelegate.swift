@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sybrinConfig = SybrinIdentityConfiguration(license: licenseKey)
         
         SybrinIdentity.shared.configuration = sybrinConfig
+        SybrinIdentity.shared.changeLogLevel(to: .Information)
         
         return true
     }
