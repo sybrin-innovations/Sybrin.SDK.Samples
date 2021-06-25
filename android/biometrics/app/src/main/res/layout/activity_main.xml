@@ -11,43 +11,28 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Press to scan!"
+        android:text="Select feature!"
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/btnScanDocument"
+        android:id="@+id/btnLivenessDetection"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Scan Document" />
+        android:text="Liveness Detection" />
     <Button
-        android:id="@+id/btnScanIDCard"
+        android:id="@+id/btnFacialRecognition"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Scan ID Card" />
+        android:text="Facial Recognition" />
     <Button
-        android:id="@+id/btnScanPassport"
+        android:id="@+id/btnFacialComparison"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Scan Passport" />
-    <Button
-        android:id="@+id/btnScanGreenBook"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Scan Green Book" />
-    <Button
-        android:id="@+id/btnScanDriversLicense"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Scan Driver's License" />
-
+        android:text="Facial Comparison" />
 </LinearLayout>

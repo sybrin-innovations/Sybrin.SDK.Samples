@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         si.scanDocument(Document.SouthAfricaPassport)
                 .addOnSuccessListener(result -> {
+
                     SouthAfricaPassportModel saModel = result.castToModel(SouthAfricaPassportModel.class);
                     showResultTest("Scan successful for " + saModel.getIdentityNumber());
                 })
