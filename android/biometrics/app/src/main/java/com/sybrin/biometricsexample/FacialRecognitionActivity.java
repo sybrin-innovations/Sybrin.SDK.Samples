@@ -13,6 +13,9 @@ import com.sybrin.facialrecognition.SybrinFacialRecognitionConfiguration;
 public class FacialRecognitionActivity extends AppCompatActivity {
 
     private final static String SYBRIN_LICENSE = "qM8KTifSxjTnFo4m+rb2gSob6OXFKwF2j3BhO1XJ4g7GV5BAT0HcRWZZ9VVzBU81HUCveC5w5uxyii56Ac/b7I3Xo9OGbCD7Q+1leZ9w0K3IoKvDZLAMggEiT2OBbfxyTKq2HxHbupgzdF2nLFyMvuHZMlWYoWVVMF5noI5D62IqihqG1Z8E1oRGdzqIC2h5yc208vWms37kOi/rK7KCpnlooqiz13NMWO1g1Ywfgf2ZoDY8hWAeXPcEQYcizyIHBvOCccUIjxeULX0mU3mfaJfZbR/CeROZSEqBY4wzFvIcoC/Ew/uJ1d+ClEHpaTTmpyeZ+vcx2aTDtptqEijxC6/QOhdJZzAjfmyEIxi77vXUE68XJlZHUb2Bj8pKe98yaYowEVG8iCABhWJPzLWwlO7u5JsPF3f5gPahtw+4k1zGFtuAh5Gmwac1/0ZpPkG5RLpgekW++//BrwnJ3CShzEKEJin/Ly8IXRHAm+nnqg0tNe+t76HzhknEksFpBnr2";
+    private final static String CLIENT_LICENSE = "qM8KTifSxjTnFo4m+rb2gSob6OXFKwF2j3BhO1XJ4g7GV5BAT0HcRWZZ9VVzBU81mSuqG3fcuajzilVQ7Exc3SrJi516dxX25H0XjqNjw0VUhgsEeTLO5xNZ0xK2hv9W/3ye+7j2RdIaORbIpw/CKqCSKfhOj4d8R82AdyCV4I/t4gMY624RrdooEPovktvxqYFpa8y1MGKexPIuEHM1jeUXBbmFuuBt2PgzRgA9ua7Q+m2uZuu1wWJpwyzh+zvvj6IyTsUJbB1gtsIhAc33g+fNxHDnfTFcVlPfn7SSlpP/mJPcqLuza16OdqIjLN1Of18XdmQZtLzuqZDLlPj/QHpKEguUslDoUvLkh8VSb6q8rZqv52A8JGUKINUnJgMEmpN8TG2/93ss6WSZ6GY7G1akVilfbmGgiVFPdQ19lPOgEsEl0YheD+VxEgf8wt74QAxIy4WLqSwf1eqeZmeO8vUyd3pNQEjx3sP+H9lfLZRcrb9MNacg3xqckrgx+hXg";
+
+    EditText txtIdentifier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,17 +26,17 @@ public class FacialRecognitionActivity extends AppCompatActivity {
         Button btnLoadModel = findViewById(R.id.btnLoadModel);
         Button btnAuthenticateFace = findViewById(R.id.btnAuthenticateFace);
 
-        EditText txtIdentifier = findViewById(R.id.txtIdentifier);
+        txtIdentifier = findViewById(R.id.txtIdentifier);
 
-        String identifier = txtIdentifier.getText().toString();
-
-        btnTrainFace.setOnClickListener(view -> launchTrainFace(identifier));
-        btnLoadModel.setOnClickListener(view -> loadModel(identifier));
-        btnAuthenticateFace.setOnClickListener(view -> launchAuthenticateFace(identifier));
+        btnTrainFace.setOnClickListener(view -> launchTrainFace());
+        btnLoadModel.setOnClickListener(view -> loadModel());
+        btnAuthenticateFace.setOnClickListener(view -> launchAuthenticateFace());
     }
 
-    private void launchTrainFace(String identifier) {
-        SybrinFacialRecognitionConfiguration sfrc = new SybrinFacialRecognitionConfiguration.Builder(SYBRIN_LICENSE).build(FacialRecognitionActivity.this);
+    private void launchTrainFace() {
+        SybrinFacialRecognitionConfiguration sfrc = new SybrinFacialRecognitionConfiguration.Builder(CLIENT_LICENSE).build(FacialRecognitionActivity.this);
+
+        String identifier = txtIdentifier.getText().toString();
 
         SybrinFacialRecognition sfr = SybrinFacialRecognition.getInstance(this, sfrc);
         sfr.trainFace(identifier)
@@ -48,8 +51,10 @@ public class FacialRecognitionActivity extends AppCompatActivity {
                 });
     }
 
-    private void loadModel(String identifier) {
+    private void loadModel() {
         SybrinFacialRecognitionConfiguration sfrc = new SybrinFacialRecognitionConfiguration.Builder(SYBRIN_LICENSE).build(FacialRecognitionActivity.this);
+
+        String identifier = txtIdentifier.getText().toString();
 
         SybrinFacialRecognition sfr = SybrinFacialRecognition.getInstance(this, sfrc);
         sfr.loadModel(identifier)
@@ -61,8 +66,10 @@ public class FacialRecognitionActivity extends AppCompatActivity {
                 });
     }
 
-    private void launchAuthenticateFace(String identifier) {
+    private void launchAuthenticateFace() {
         SybrinFacialRecognitionConfiguration sfrc = new SybrinFacialRecognitionConfiguration.Builder(SYBRIN_LICENSE).build(FacialRecognitionActivity.this);
+
+        String identifier = txtIdentifier.getText().toString();
 
         SybrinFacialRecognition sfr = SybrinFacialRecognition.getInstance(this, sfrc);
         sfr.openFacialRecognition(identifier)
